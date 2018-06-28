@@ -1,26 +1,19 @@
-import React, { Component } from 'react'
-import {Route, Switch} from 'react-router-dom'
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-import routes from './routes'
-import NavBar from './NavBar'
-import NoMatch from './NoMatch'
-
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
-        <Switch>
-          {
-            routes.map(({ path, exact, component: Component, ...rest }) => (
-              <Route key={path} path={path} exact={exact} render={(props) => (
-                <Component {...props} {...rest} />
-              )} />
-            ))
-          }
-          <Route render={ props => (<NoMatch {...props} />)} />
-        </Switch>
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React in the Server</h2>
+        </div>
+        <p className="App-intro">Isn't this cool?</p>
       </div>
-    )
+    );
   }
 }
+
+export default App;
